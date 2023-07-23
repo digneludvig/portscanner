@@ -1,9 +1,12 @@
 package main
 
 import (
-	"fmt"
+	"portscanner/scanner"
 )
 
 func main() {
-	fmt.Println("Lol")
+	hostname := "google.com"
+	port := 80
+
+	scanner.ScanPort(hostname, port)
 }
