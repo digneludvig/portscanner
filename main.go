@@ -5,8 +5,7 @@ import (
 )
 
 func main() {
-	hostname := "google.com"
-	port := 80
-
-	scanner.ScanPort(hostname, port)
+	hostnames := []string{"google.com", "facebook.com", "mail.digne.se"}
+	ports := []int{80, 443}
+	scanner.ScanRange(hostnames, ports)
 }

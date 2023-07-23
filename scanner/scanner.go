@@ -12,12 +12,22 @@ func ScanPort(hostname string, port int) bool {
 
 	if err != nil {
 		fmt.Printf("%s\n", err)
-		fmt.Printf("Port %d is closed or unreachable.\n", port)
+		fmt.Printf("\tPort %d is closed or unreachable on %s.\n", port, hostname)
 		return false
 	}
 
 	defer conn.Close()
 
-	fmt.Printf("Port %d is open.\n", port)
+	fmt.Printf("\tPort %d is open on %s.\n", port, hostname)
 	return true
+}
+
+func ScanRange(hostnames []string, ports []int) {
+	for _, hostname := range hostnames {
+		fmt.Printf("Starting scan on %s, ports: %d\n", hostname, ports)
+		for _, port := range ports {
+			ScanPort(hostname, port)
+		}
+		fmt.Printf("\n")
+	}
 }
