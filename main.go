@@ -1,11 +1,13 @@
 package main
 
 import (
+	"portscanner/cli"
 	"portscanner/scanner"
 )
 
 func main() {
+	config := cli.ParseFlags()
 	hostnames := []string{"google.com", "facebook.com", "mail.digne.se"}
-	ports := []int{80, 443}
-	scanner.ScanRange(hostnames, ports)
+
+	scanner.ScanRange(hostnames, config.Ports)
 }
