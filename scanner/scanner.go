@@ -11,8 +11,7 @@ func ScanPort(hostname string, port int) bool {
 	conn, err := net.DialTimeout("tcp", address, 5*time.Second)
 
 	if err != nil {
-		fmt.Printf("%s\n", err)
-		fmt.Printf("\tPort %d is closed or unreachable on %s.\n", port, hostname)
+		fmt.Printf("\tPort %d is closed or unreachable on %s. Error message: %s\n", port, hostname, err)
 		return false
 	}
 

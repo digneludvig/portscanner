@@ -8,6 +8,6 @@ import (
 func main() {
 	config := cli.ParseFlags()
 	hostnames := []string{"google.com", "facebook.com", "mail.digne.se"}
-
-	scanner.ScanRange(hostnames, config.Ports)
+	ports := config.Ports
+	scanner.ScanRange(hostnames, ports)
 }

@@ -8,15 +8,17 @@ import (
 )
 
 type Config struct {
-	Port int
+	Ports []int
 }
 
 func ParseFlags() *Config {
-	portPtr := flag.Int("p", 80, "Port to scan")
+	portPtr := flag.String("p", "80", "Port to scan")
 	flag.Parse()
 
+	ports := parsePorts(*portPtr)
+
 	return &Config{
-		Port: *portPtr,
+		Ports: ports,
 	}
 }
 
